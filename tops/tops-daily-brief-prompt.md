@@ -69,6 +69,31 @@ Read Remarks too. Show both dates. Don't flag them as stale or a duplicate
 while they're working as a contractor; flag only if the full-time date has
 passed and the status hasn't changed.
 
+### Employee status and reporting manager: Primitive Staff (source of truth)
+
+Base `apphjnTb11JWKMKPf` ("Primitive: Staff"), table **All Staff**
+`tblxBwjgXCX4eqHzG`: Full Name fldwyWvPAlZ7onyOW · Display Name
+fldAjBDNwDtrA6HwJ · Lifecycle Status fldc6BvsLNr1uxkwS (Employed / Garden
+Leave / Terminated) · Reports to fldVdRyVu6DXLUJ1L · Second level manager
+fldIDEuhuTbZm1EpT · Job title fld2yWThsIqvfnlHK · Department
+fldowQgegMjMIZmkv. Filter by name with `contains` on Full Name (one flat
+`or` list, no nested groups).
+
+Use this, not the TOPS Base copy, for every lifecycle check (cross-checks
+6 and 7) and for each person's reporting manager in the probation lists.
+Also check:
+- **Manager mismatch**: Primitive "Reports to" differs from the TOPS
+  Onboarding HM. Show both and flag "check manager". Names can differ in
+  format ("Carrier, Charles" = "Charles Carrier"), but watch for genuinely
+  different people with similar names (Charles Carrier vs Charles David
+  Antony Arulraj).
+- **Manager has left or is leaving**: an Employed person whose "Reports to"
+  is Terminated, on Garden Leave, or in the Off-Boarding pipeline. Flag
+  "reassign reporting line", and for anyone on probation ask who makes
+  the probation decision.
+- **Label contradictions**: TOPS says terminated, but Primitive says
+  Employed (or the other way round).
+
 Work out days to start and days to PLD yourself from today's date. Don't
 trust the `Days to Start Date` formula; it can go stale.
 
@@ -150,9 +175,7 @@ and remark as context.
 6. **Exclude anyone who has already left.** Before you list anyone under
    probation (ending soon *or* past due), check them against the **full**
    Off-Boarding table (every record, matched by name; not only recent PLDs)
-   and their HR lifecycle status in `All Employees > Including Terminate`
-   `tblFKNoWAKAUx0sY5` (Full Name fldE2K9OJzfUtNOZn, Lifecycle Status
-   fldiSz2NmujvFoWhD). If someone has an Off-Boarding record, or their
+   and their Lifecycle Status in **Primitive Staff** (All Staff table above). If someone has an Off-Boarding record, or their
    lifecycle is Terminated or Garden Leave, take them out of the probation
    lists. Under Data hygiene, flag them instead as "left but still On
    Probation: update the Onboarding status". Only people who are still
