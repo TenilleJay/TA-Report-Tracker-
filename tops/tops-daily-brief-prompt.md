@@ -41,6 +41,11 @@ Payroll Setup fldLZxXSzQJHbfVZg · Insurance fldFsUlyoHYy14Onp ·
 Buddy fldYuiiDYLw8086FB · Milestones Link fldsisbM1g6g71HMu ·
 Work Email fldnAcm8NqROq7PTo · Remarks fldzisK0CX8MobVye
 
+Also pull **terminated during probation**: `Status` = `Terminated -
+during Probation Period` sel0kggt7dKvHUMWG (Full Name, Designation,
+Department, Start Date, Probation End Date, HM). Get each person's
+PLD and OLD from the full Off-Boarding table by name.
+
 Also pull **probation ending soon**: `Status` (fldKQASIIwyFRULMF) =
 `On Probation ` sel3rfR8VcaeXhGw2, with Probation End Date
 (fldDwUeaCHbBH4KZ3) in the next 14 days.
@@ -136,6 +141,19 @@ Reply with only the brief, in this shape. Keep it short enough to read in
 
 ## ⏳ Probation ending ≤14 days
 - <name> · <role> · ends <date>
+
+## 🚪 Terminated during probation
+**Needs Onboarding status update (N)**: people still "On Probation" who
+have left (from cross-check 6)
+| Name | Role · Dept | Left (PLD / OLD) | Lifecycle | HM |
+**Recent (OLD in last 90 days)**: everyone with Onboarding Status
+"Terminated - during Probation Period" (sel0kggt7dKvHUMWG) plus the
+not-yet-updated leavers above, newest first
+| Name | Role · Dept | Start | Left (PLD / OLD) | Days employed | HM |
+**2026 year to date**: N total · top departments (e.g. Kaaiser 12)
+**Check labels**: marked "Terminated during probation" but no
+Off-Boarding record or lifecycle still Employed, or they left after their
+probation end date (so they didn't actually leave during probation)
 
 ## ⚠️ Data hygiene
 - <cross-check findings 1, 2, 5>
