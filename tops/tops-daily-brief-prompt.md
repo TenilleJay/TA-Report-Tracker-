@@ -99,6 +99,17 @@ Classify each thread:
    due today. PLD passed and Assets/Laptop not collected → chase IT.
 5. Duplicate Onboarding records for the same person (same name, two
    Request IDs) → flag for clean-up.
+6. **Exclude anyone who has already left.** Before you list anyone under
+   probation (ending soon *or* past due), check them against the **full**
+   Off-Boarding table (every record, matched by name; not only recent PLDs)
+   and their HR lifecycle status in `All Employees > Including Terminate`
+   `tblFKNoWAKAUx0sY5` (Full Name fldE2K9OJzfUtNOZn, Lifecycle Status
+   fldiSz2NmujvFoWhD). If someone has an Off-Boarding record, or their
+   lifecycle is Terminated or Garden Leave, take them out of the probation
+   lists. Under Data hygiene, flag them instead as "left but still On
+   Probation: update the Onboarding status". Only people who are still
+   Employed count as probation actions. If a name match is uncertain (for
+   example, the dates don't fit), mark it "please confirm".
 
 ## Output
 
