@@ -61,6 +61,14 @@ Laptop Collected fldnPlYGSRjrcMqCe · Request to IT/Fin/Admin fldKXlIeX38hIPJjc 
 Deactivate HiBob fldQQpuaareSMyaiQ · Payroll fld4IfrsUH6wqt6yi ·
 Qapita fldE95bFlyTfyqeOu · TOPS POC fldFY9GxlFFioCVJm
 
+**Contractor to full-time conversions**: when `Status` = `Changing IC to FT
+(Check Remarks)` (sel2GpWrrLEBMebBq), the person has two start dates:
+Start Date (fldOgvzKJrlJL0Tm6) is the contractor start, and
+`Start Date IC to Full Time` (fld5rJI6LgDfEDdTr) is the full-time start.
+Read Remarks too. Show both dates. Don't flag them as stale or a duplicate
+while they're working as a contractor; flag only if the full-time date has
+passed and the status hasn't changed.
+
 Work out days to start and days to PLD yourself from today's date. Don't
 trust the `Days to Start Date` formula; it can go stale.
 
@@ -72,6 +80,23 @@ that's Friday). Page through every result. Open an email with
 `read_resource` only when the summary isn't enough to classify it.
 (Mail sent to the old alias talentoperations@cialfo.com.sg lands in the same
 mailbox.)
+
+### 3. PandaDoc signing notices (Tenille's own mailbox)
+
+`outlook_email_search` with `sender: docs@email.pandadoc.net` and the same
+`afterDateTime` (no `mailboxOwnerEmail`, so it searches Tenille's own
+inbox, which is where "viewed" and "completed" notices land). The
+subject lines tell you the event: "X has viewed the document \"…\"",
+"X has just completed the document \"…\"" (that person signed),
+"\"…\" document has been completed by all participants", "delivery
+failure", "Reminder to renew". For every separation agreement,
+employment agreement, contract or letter still in progress, build:
+Manifest signed (who, when) · recipient opened (when / not yet) ·
+recipient signed. Cross-check against the Off-Boarding "Separation
+Agreement" field and offer statuses: if PandaDoc says completed but
+Airtable doesn't, flag "update Airtable"; if someone says by email they
+signed but there's no PandaDoc notice, say so. Flag any delivery failure
+or upcoming renewal.
 
 Classify each thread:
 - **Needs TOPs action**: a candidate, employee, manager, vendor or EOR
@@ -133,6 +158,10 @@ Reply with only the brief, in this shape. Keep it short enough to read in
 
 ## 👋 Offboarding pipeline (PLD past 14d → future)
 | PLD / OLD | Name | Role | SA | LOE | Assets | Flag |
+
+## ✍️ Document signing (PandaDoc)
+| Document | Manifest signed | Recipient opened | Recipient signed | Next step |
+Completed in the last 7 days: one line · Delivery failures / renewals
 
 ## 📬 Shared mailbox (since <date>)
 **Needs TOPs reply (N)**: one line each: sender · subject · what they need
