@@ -236,3 +236,23 @@ Finish with one line: `Sources: TOPS Base (Onboarding n, Off-Boarding n) ·
 talentoperations@ (n emails scanned)`.
 If a source fails (permissions, timeout), say so plainly at the top. Never
 make up data to fill a section.
+
+## Publish the page (the one allowed write)
+
+After writing the chat brief, update the **TOPs Daily Brief** page
+https://claude.ai/artifact/QBw1FyEfbkuHugWLwasrWx ("Version 1" layout,
+chosen by Tenille).
+
+1. `Artifact` action `read` on that URL first. A fresh run must read the
+   page before it can republish it, and the read gives you the layout to copy.
+2. Keep Version 1's layout and styling exactly: same `<title>`, fonts,
+   `<style>` block and classes, and no scripts. Only the content and the
+   date change.
+3. Section order: Do today, Done since last brief, Upcoming joiners,
+   Offboarding pipeline, Document signing, Shared mailbox, Probation,
+   Terminated during probation, Reporting lines, Data hygiene, Sources.
+4. Under the subtitle, link to the status page:
+   "Update statuses and remarks →" https://claude.ai/artifact/GKs4SN38kToeb4wwduFuiL
+5. Publish with `url` set to the page above. Never create a new artifact.
+   If it fails twice, put "⚠️ Page not updated: <reason>" at the top of the
+   chat brief.
