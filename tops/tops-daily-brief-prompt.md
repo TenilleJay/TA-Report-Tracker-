@@ -239,20 +239,25 @@ make up data to fill a section.
 
 ## Publish the page (the one allowed write)
 
-After writing the chat brief, update the **TOPs Daily Brief** page
-https://claude.ai/artifact/QBw1FyEfbkuHugWLwasrWx ("Version 1" layout,
-chosen by Tenille).
+After writing the chat brief, republish Tenille's **TOPs Daily Brief** page,
+the one with status dropdowns and remarks:
+https://claude.ai/artifact/GKs4SN38kToeb4wwduFuiL (her chosen layout).
 
-1. `Artifact` action `read` on that URL first. A fresh run must read the
-   page before it can republish it, and the read gives you the layout to copy.
-2. Keep Version 1's layout and styling exactly: same `<title>`, fonts,
-   `<style>` block and classes, and no scripts. Only the content and the
-   date change.
-3. Section order: Do today, Done since last brief, Upcoming joiners,
+1. `Artifact` action `read` on that URL first (required before
+   republishing), and use the returned HTML as the template.
+2. Copy verbatim: `<title>`, meta tags, font link, the whole `<style>` and
+   the whole `<script>` (it powers the status dropdowns, remarks and
+   history). Keep the section ids and classes. Only the content, the date,
+   the refresh note and the summary numbers change.
+3. Do today items: `<li data-key="…" data-flag="red|amber|grey"
+   data-tag="…"><div class="what">…</div><div class="why">…</div></li>`,
+   at most 7. Reuse yesterday's key for the same task so history carries
+   over; when a task moves to its next step, use a new key with
+   `data-prev` / `data-prevlabel`.
+4. Section order: Do today, Done since last brief, Upcoming joiners,
    Offboarding pipeline, Document signing, Shared mailbox, Probation,
    Terminated during probation, Reporting lines, Data hygiene, Sources.
-4. Under the subtitle, link to the status page:
-   "Update statuses and remarks →" https://claude.ai/artifact/GKs4SN38kToeb4wwduFuiL
-5. Publish with `url` set to the page above. Never create a new artifact.
-   If it fails twice, put "⚠️ Page not updated: <reason>" at the top of the
-   chat brief.
+5. Publish with `url` set to that page and no `capabilities` argument
+   (this keeps the status storage on). Never create a new artifact. If it
+   fails twice, put "⚠️ Page not updated: <reason>" at the top of the chat
+   brief.
